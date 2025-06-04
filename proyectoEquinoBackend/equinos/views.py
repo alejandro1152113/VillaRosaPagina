@@ -1,46 +1,44 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
+from django.shortcuts import render
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Equino
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import JsonResponse
+from django.urls import reverse_lazy
+from .forms import EquinoForm
 
-def api_equinos(request):
-    equinos = Equino.objects.all()
-    data = []
-    for eq in equinos:
-        data.append({
-            'nombre': eq.nombre,
-            'edad': eq.edad,
-            'raza': eq.raza,
-            'descripcion': eq.descripcion,
-            'precio': float(eq.precio) if eq.precio else None,
-            'foto': eq.foto.url if eq.foto else '',
-        })
-    return JsonResponse({'equinos': data})
+class EquinoCreateView(CreateView):
+    model = Equino
+    fields = ['nombre', 'edad', 'precio', 'raza', 'genero', 'foto']
+    template_name = 'equinos/equino_form.html'  # o la que uses
+    success_url = reverse_lazy('equino_list')
 
 class EquinoListView(ListView):
     model = Equino
-    template_name = 'equinos/equino_list.html'
+    template_name = 'equinos/equino_lista.html'  # El archivo que acabamos de crear
     context_object_name = 'equinos'
 
-class EquinoDetailView(LoginRequiredMixin, DetailView):
-    model = Equino
-    template_name = 'equinos/equino_detail.html'
-    context_object_name = 'equino'
+    def get_queryset(self):
+        query = self.request.GET.get('q', '')
+        if query:
+            return Equino.objects.filter(nombre__icontains=query)
+        return Equino.objects.all()
 
-class EquinoCreateView(LoginRequiredMixin, CreateView):
+# Vista para actualizar un equino
+class EquinoUpdateView(UpdateView):
     model = Equino
-    fields = ['nombre', 'edad', 'precio', 'foto']
+    form_class = EquinoForm
     template_name = 'equinos/equino_form.html'
     success_url = reverse_lazy('equino_list')
 
-class EquinoUpdateView(LoginRequiredMixin, UpdateView):
-    model = Equino
-    fields = ['nombre', 'edad', 'precio', 'foto']
-    template_name = 'equinos/equino_form.html'
-    success_url = reverse_lazy('equino_list')
-
-class EquinoDeleteView(LoginRequiredMixin, DeleteView):
+# Vista para eliminar un equino
+class EquinoDeleteView(DeleteView):
     model = Equino
     template_name = 'equinos/equino_confirm_delete.html'
     success_url = reverse_lazy('equino_list')
+
+
+def pagina_equinos(request):
+    equinos = Equino.objects.all()
+    return render(request, 'equinos/equinos.html', {'equinos': equinos})
+
+def lista_equinos(request):
+    equinos = Equino.objects.all()
+    return render(request, 'equinos.html', {'equinos': equinos})

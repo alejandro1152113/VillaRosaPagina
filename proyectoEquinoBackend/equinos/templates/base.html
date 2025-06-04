@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Criadero Villa Rosa{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Criadero Villa Rosa</h1>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <p>© 2025 Criadero Villa Rosa</p>
+    </footer>
+</body>
+</html>

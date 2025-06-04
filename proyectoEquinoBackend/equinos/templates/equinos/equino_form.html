@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<h2>{% if equino %}Editar Equino{% else %}Agregar Equino{% endif %}</h2>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Guardar</button>
-</form>
-<a href="{% url 'equino_list' %}">Cancelar</a>
-<a href="javascript:history.back()">← Regresar</a>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Agregar Nuevo Equino</title>
+</head>
+<body>
+    <h1>Agregar Nuevo Equino</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'lista_equinos' %}">Volver a la lista</a>
+</body>
+</html>

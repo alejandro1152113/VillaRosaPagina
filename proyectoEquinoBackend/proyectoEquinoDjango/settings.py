@@ -1,19 +1,16 @@
 from pathlib import Path
-import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Clave secreta para seguridad de Django
+
 SECRET_KEY = 'django-insecure-temporal-key-for-development-1234567890abcdef'
 
-# Configuración de depuración y hosts permitidos
 DEBUG = True
 ALLOWED_HOSTS = []
 
-# Aplicaciones instaladas
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -26,8 +23,8 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-# Middleware
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # debe ir arriba antes de CommonMiddleware
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -35,16 +32,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True 
+
 ROOT_URLCONF = 'proyectoEquinoDjango.urls'
 
-# Configuración de plantillas
 TEMPLATES = [
     {
-
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
@@ -59,7 +54,7 @@ TEMPLATES = [
     },
 ]
 
-# Configuración de base de datos (SQLite por defecto)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -67,14 +62,14 @@ DATABASES = {
     }
 }
 
-# Configuración de archivos estáticos
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Redirección después de login y logout
+
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/equinos/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGOUT_REDIRECT_URL = '/'         # Redirige al index tras logout

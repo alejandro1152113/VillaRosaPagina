@@ -5,22 +5,57 @@
     <title>Lista de Equinos</title>
 </head>
 <body>
-    <h1>Lista de Equinos</h1>
 
-    <!-- Navegación -->
-    <nav>
-        <a href="{% url 'logout' %}">Cerrar sesión</a> | 
-        <a href="http://127.0.0.1:5500/equinos.html" target="_blank" rel="noopener noreferrer">Ir a la página web</a>
-    </nav>
+<h1>Lista de Equinos</h1>
+<a href="{% url 'pagina_equinos' %}" class="btn btn-primary">Ver página pública de equinos</a>
 
-    <ul>
+<!-- Formulario búsqueda -->
+<form method="get" action="{% url 'equino_list' %}">
+    <input type="text" name="q" placeholder="Buscar por nombre" value="{{ request.GET.q }}">
+    <button type="submit">Buscar</button>
+    <a href="{% url 'equino_nuevo' %}">Agregar Nuevo Equino</a>
+</form>
+
+<!-- Lista de equinos -->
+{% if equinos %}
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Precio</th>
+            <th>Raza</th>
+            <th>Genero</th>
+            <th>Foto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
         {% for equino in equinos %}
-            <li>
-                <strong>{{ equino.nombre }}</strong> - Edad: {{ equino.edad }} - Precio: {{ equino.precio }}
-            </li>
-        {% empty %}
-            <li>No hay equinos registrados.</li>
+        <tr>
+            <td>{{ equino.nombre }}</td>
+            <td>{{ equino.edad }}</td>
+            <td>{{ equino.precio }}</td>
+            <td>{{ equino.raza }}</td>
+            <td>{{ equino.get_genero_display }}</td>
+            <td>
+                {% if equino.foto %}
+                    <img src="{{ equino.foto.url }}" alt="Foto de {{ equino.nombre }}" width="100">
+                {% else %}
+                    Sin foto
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'equino_actualizar' equino.pk %}">Editar</a> |
+                <a href="{% url 'equino_eliminar' equino.pk %}">Eliminar</a>
+            </td>
+        </tr>
         {% endfor %}
-    </ul>
+    </tbody>
+</table>
+{% else %}
+<p>No hay equinos para mostrar.</p>
+{% endif %}
+
 </body>
 </html>
