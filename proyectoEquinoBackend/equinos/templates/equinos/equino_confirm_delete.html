@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<h2>¿Eliminar {{ equino.nombre }}?</h2>
+<form method="post">{% csrf_token %}
+  <button type="submit">Confirmar</button>
+  <a href="{% url 'equino_list' %}">Cancelar</a>
+</form>
+<a href="javascript:history.back()">← Regresar</a>

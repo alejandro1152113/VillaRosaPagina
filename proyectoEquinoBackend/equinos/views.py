@@ -1,12 +1,8 @@
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Equino
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
-from .models import Equino
-
-from django.http import JsonResponse
-from .models import Equino
 
 def api_equinos(request):
     equinos = Equino.objects.all()
@@ -26,6 +22,11 @@ class EquinoListView(ListView):
     model = Equino
     template_name = 'equinos/equino_list.html'
     context_object_name = 'equinos'
+
+class EquinoDetailView(LoginRequiredMixin, DetailView):
+    model = Equino
+    template_name = 'equinos/equino_detail.html'
+    context_object_name = 'equino'
 
 class EquinoCreateView(LoginRequiredMixin, CreateView):
     model = Equino

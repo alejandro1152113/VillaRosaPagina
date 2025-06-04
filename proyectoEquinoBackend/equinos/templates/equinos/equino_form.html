@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<h2>{% if equino %}Editar Equino{% else %}Agregar Equino{% endif %}</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Guardar</button>
+</form>
+<a href="{% url 'equino_list' %}">Cancelar</a>
+<a href="javascript:history.back()">← Regresar</a>

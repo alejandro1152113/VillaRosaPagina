@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<h1>{{ equino.nombre }}</h1>
+<p>Edad: {{ equino.edad }}</p>
+<p>Precio: {{ equino.precio }}</p>
+{% if equino.foto %}
+  <img src="{{ equino.foto.url }}" alt="Foto de {{ equino.nombre }}" style="max-width:300px;">
+{% endif %}
+
+<a href="javascript:history.back()">← Volver</a>

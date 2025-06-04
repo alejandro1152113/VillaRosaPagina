@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lista de Equinos</title>
+</head>
+<body>
+    <h1>Lista de Equinos</h1>
+
+    <!-- Navegación -->
+    <nav>
+        <a href="{% url 'logout' %}">Cerrar sesión</a> | 
+        <a href="http://127.0.0.1:5500/equinos.html" target="_blank" rel="noopener noreferrer">Ir a la página web</a>
+    </nav>
+
+    <ul>
+        {% for equino in equinos %}
+            <li>
+                <strong>{{ equino.nombre }}</strong> - Edad: {{ equino.edad }} - Precio: {{ equino.precio }}
+            </li>
+        {% empty %}
+            <li>No hay equinos registrados.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
