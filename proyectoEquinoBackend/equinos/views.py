@@ -5,10 +5,22 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 from .models import Equino
 
-def equinos_api(request):
-    equinos = Equino.objects.all().values('nombre', 'edad', 'raza', 'foto')  # agrega los campos que desees
-    equinos_list = list(equinos)
-    return JsonResponse({'equinos': equinos_list})
+from django.http import JsonResponse
+from .models import Equino
+
+def api_equinos(request):
+    equinos = Equino.objects.all()
+    data = []
+    for eq in equinos:
+        data.append({
+            'nombre': eq.nombre,
+            'edad': eq.edad,
+            'raza': eq.raza,
+            'descripcion': eq.descripcion,
+            'precio': float(eq.precio) if eq.precio else None,
+            'foto': eq.foto.url if eq.foto else '',
+        })
+    return JsonResponse({'equinos': data})
 
 class EquinoListView(ListView):
     model = Equino

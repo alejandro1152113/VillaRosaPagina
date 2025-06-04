@@ -1,7 +1,9 @@
 from django.urls import path
 from .views import EquinoListView, EquinoCreateView, EquinoUpdateView, EquinoDeleteView
+from .views import api_equinos
 
 urlpatterns = [
+    path('api/equinos/', api_equinos, name='api_equinos'),
     path('', EquinoListView.as_view(), name='equino_list'),
     path('nuevo/', EquinoCreateView.as_view(), name='equino_nuevo'),
     path('editar/<int:pk>/', EquinoUpdateView.as_view(), name='equino_editar'),
