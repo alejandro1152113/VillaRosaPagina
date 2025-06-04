@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Eventos</title>
+    <link rel="stylesheet" href="css/styles_evento.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Calendario de Eventos - Criadero Villa Rosa</h1>
+    </header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="eventos.html">Eventos</a>
+        <a href="equinos.html">Equinos</a>
+        <a href="blog.html">Blog</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="container">
+        <div id="monthYear" class="monthYear"></div>
+        <div id="calendar" class="calendar"></div>
+    </div>
+    
+    <!-- Modal -->
+    <div id="eventModal" class="modal">
+        <h3 id="eventTitle"></h3>
+        <p id="eventDescription"></p>
+        <a id="whatsappLink" href="#" class="close" target="_blank">Participar en WhatsApp</a>
+        <button class="close" onclick="closeModal()">Cerrar</button>
+    </div>
+
+    <!-- Botones para cambiar de mes -->
+    <div class="month-controls">
+        <button onclick="changeMonth(-1)">Mes Anterior</button>
+        <button onclick="changeMonth(1)">Mes Siguiente</button>
+    </div>
+    
+    <footer>
+        <p>© 2025 Criadero Villa Rosa</p>
+    </footer>
+    <script src="js/script_eventos.js"></script>
+    <script src="js/asistente.js"></script>
+    <div id="asistente-container"></div>
+</body>
+</html>

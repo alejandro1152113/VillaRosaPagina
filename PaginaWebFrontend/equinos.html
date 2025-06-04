@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equinos - Criadero Villa Rosa</title>
+    <link rel="stylesheet" href="css/styles_equinos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Agregar Font Awesome -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Equinos - Criadero Villa Rosa</h1>
+    </header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="eventos.html">Eventos</a>
+        <a href="equinos.html">Equinos</a>
+        <a href="blog.html">Blog</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="container" id="equinosContainer"></div>
+    <div class="modal" id="equinoModal">
+        <h3 id="equinoName"></h3>
+        <p><strong>Raza:</strong> <span id="equinoRaza"></span></p>
+        <p><strong>Edad:</strong> <span id="equinoEdad"></span> años</p>
+        <p><strong>Criadero:</strong> <span id="equinoCriadero"></span></p>
+        <p><strong>Género:</strong> <span id="equinoGenero"></span></p>
+        <p><strong>Tipo:</strong> <span id="equinoTipo"></span></p>
+        <a id="whatsappLink" class="btn" target="_blank">
+            <i class="fas fa-shopping-cart"></i> Comprar o Alquilar
+        </a>
+        <button class="close" onclick="closeModal()">Cerrar</button>
+    </div>
+
+    <footer>
+        <p>© 2025 Criadero Villa Rosa</p>
+    </footer>
+    <script src="js/asistente.js"></script>
+    <script src="js/script_equinos.js"></script>    
+    <div id="asistente-container"></div>
+</body>
+</html>

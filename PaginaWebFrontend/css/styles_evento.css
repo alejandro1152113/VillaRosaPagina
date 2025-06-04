@@ -1,0 +1,106 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background: #8B4513;
+    color: white;
+    padding: 15px;
+}
+
+nav {
+    background: #A0522D;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.monthYear {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day {
+    padding: 20px;
+    background: #F4A460;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.event-day {
+    background: #8B0000;
+    color: white;
+}
+
+.event-title {
+    font-size: 12px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
+}
+
+.modal.active {
+    display: block;
+}
+
+.close {
+    margin-top: 10px;
+    cursor: pointer;
+    background: #8B0000;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+}
+
+.month-controls {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #A0522D;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #8B4513;
+}

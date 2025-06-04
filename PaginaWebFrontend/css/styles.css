@@ -1,0 +1,234 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #8B4513;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 2.5em;
+    /* Ajuste para mayor visibilidad */
+}
+
+nav {
+    background: #A0522D;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+.event {
+    background: #F4A460;
+    padding: 15px;
+    margin: 10px auto;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.contact-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #8B0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.blog-container {
+    text-align: center;
+    padding: 40px;
+    background: #f8f8f8;
+}
+
+.blog-container h2 {
+    color: #8B4513;
+}
+
+.blog-posts {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.post {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.post img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.read-more {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #8B4513;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    background-color: #A0522D;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Mejor estilo para las secciones de eventos y blog */
+.container,
+.blog-container {
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.event,
+.post {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del ChatBot */
+.chat-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #8B4513;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.chat-button:hover {
+    background-color: #6e3b1a;
+    /* Efecto hover */
+}
+
+.chat-box {
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    max-height: 400px;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.chat-box.active {
+    display: flex;
+    opacity: 1;
+}
+
+.chat-header {
+    background-color: #8B4513;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.chat-body {
+    padding: 10px;
+    flex-grow: 1;
+    overflow-y: auto;
+    height: 300px;
+}
+
+.chat-footer {
+    display: flex;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 0 0 10px 10px;
+}
+
+.chat-footer input {
+    flex-grow: 1;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.chat-footer button {
+    background-color: #8B4513;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.quick-reply {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quick-reply:hover {
+    background-color: #218838;
+}
+
+.container,
+.blog-container {
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

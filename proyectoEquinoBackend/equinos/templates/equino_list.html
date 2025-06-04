@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% if user.is_authenticated %}
+  <p>Hola, {{ user.username }} | <a href="{% url 'logout' %}">Cerrar sesión</a></p>
+{% else %}
+  <p><a href="{% url 'login' %}">Iniciar sesión</a></p>
+{% endif %}
+<h1>Lista de Equinos</h1>
+
+{% if equinos %}
+  <ul>
+    {% for equino in equinos %}
+      <li>
+        <a href="{% url 'equino_detail' equino.id %}">{{ equino.nombre }}</a>
+        - {{ equino.raza }} - {{ equino.edad }} años
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No hay equinos registrados.</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+  <p><a href="{% url 'equino_create' %}">Registrar nuevo equino</a></p>
+{% endif %}

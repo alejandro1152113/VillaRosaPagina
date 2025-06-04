@@ -1,0 +1,77 @@
+/* Estilos del Blog */
+.blog-container {
+    text-align: center;
+    padding: 40px;
+    background: #f8f8f8;
+}
+
+.blog-container h2 {
+    color: #8B4513;
+}
+
+.blog-posts {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.post {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+}
+
+.post img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.read-more {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #8B4513;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+.add-post {
+    margin-top: 30px;
+}
+
+#addPostButton {
+    padding: 10px 20px;
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#addPostButton:hover {
+    background-color: #A0522D;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    background-color: #A0522D;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
